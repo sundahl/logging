@@ -1,10 +1,11 @@
 
+const resolve = require('path').resolve
 const morgan = require('morgan')
 const {omit, get, pick, noop} = require('lodash')
 const uid = require('unique-string')
 const s3 = require('@sundahl/s3')
 
-const package = require('../package.json')
+const package = require(resolve(process.cwd(), 'package.json'))
 const LOG_BUCKET = 'io-sundahl-logs'
 
 morgan.token('id', req => req.id)
